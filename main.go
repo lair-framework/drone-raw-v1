@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/lair-framework/go-lair"
 	lv1 "gopkg.in/lair-framework/go-lair.v1"
@@ -59,6 +60,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Fatal: Could not open file. Error %s", err.Error())
 	}
+	hostTags := strings.Split(*tags, ",")
 	l1 := lv1.Project{}
 	if err := json.Unmarshal(data, l1); err != nil {
 		log.Fatalf("Fatal: Could not parse JSON. Error %s", err.Error())
@@ -76,6 +78,7 @@ func main() {
 			MAC:            h.MacAddr,
 			IsFlagged:      h.Flag,
 			Hostnames:      h.Hostnames,
+			Tags:           hostTags,
 			LastModifiedBy: h.LastModifiedBy,
 		}
 		for _, o := range h.OS {
