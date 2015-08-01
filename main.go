@@ -14,8 +14,10 @@ import (
 	lv1 "gopkg.in/lair-framework/go-lair.v1"
 )
 
-var version = "1.0.0"
-var usage = `
+const (
+	version = "1.0.0"
+	tool    = "rawv1"
+	usage   = `
 Usage:
   drone-raw-v1 <id> <filename>
   export LAIR_ID=<id>; drone-raw-v1 <filename>
@@ -26,6 +28,7 @@ Options:
   -force-ports    disable data protection in the API server for excessive ports
 	-tags           a comma separated list of tags to add to every host that is imported
 `
+)
 
 func main() {
 	showVersion := flag.Bool("v", false, "")
@@ -68,7 +71,7 @@ func main() {
 	l2 := lair.Project{
 		CreatedAt: l1.CreationDate,
 		DroneLog:  l1.DroneLog,
-		Tool:      "drone-raw-v1",
+		Tool:      tool,
 	}
 	for _, h := range l1.Hosts {
 		l2Host := lair.Host{
