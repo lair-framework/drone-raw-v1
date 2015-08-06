@@ -23,8 +23,8 @@ const (
 Imports a lair v1 JSON file into a lair v2 project.
 
 Usage:
-  drone-raw-v1 <id> <filename>
-  export LAIR_ID=<id>; drone-raw-v1 <filename>
+  drone-raw-v1 [option] <id> <filename>
+  export LAIR_ID=<id>; drone-raw-v1 [option] <filename>
 Options:
   -v              show version and exit
   -h              show usage and exit
