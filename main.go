@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	version = "1.0.0"
+	version = "1.0.1"
 	tool    = "rawv1"
 	usage   = `
 Imports a lair v1 JSON file into a lair v2 project.
